@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join Us | The Literary Society</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <img src="images/logo.jpg" alt="The Literary Society logo">
+            <span>The Literary Society</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+        </div>
+    </nav>
+
+    <main class="form-page">
+        <div class="form-heading">
+            <p class="eyebrow">THE LITERARY SOCIETY</p>
+            <h1>Tell us your story.</h1>
+            <p>Complete the form below to express your interest in joining our community.</p>
+        </div>
+
+        <form id="recruitmentForm">
+
+            <div class="form-group">
+                <label for="fullName">Full name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollNumber">College roll number *</label>
+                <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter your roll number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email"> Email address *</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}"
+                    maxlength="10" required>
+                <small>Enter a 10-digit mobile number.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year of study *</label>
+                <select id="year" name="year" required>
+                    <option value="">Select your year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="branch">Branch *</label>
+                <input type="text" id="branch" name="branch" placeholder="e.g. CSE, ECE, AIML, AI, EEE" required>
+            </div>
+
+            <fieldset class="form-group">
+                <legend>Areas of interest *</legend>
+
+                <label class="choice">
+                    <input type="checkbox" name="interests" value="Creative Writing">
+                    Creative writing
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox" name="interests" value="Poetry">
+                    Poetry and literature
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox" name="interests" value="Public Speaking">
+                    Public speaking and debates
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox" name="interests" value="Content Creation">
+                    Content creation
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox" name="interests" value="Event Management">
+                    Event management
+                </label>
+            </fieldset>
+
+            <div class="form-group">
+                <label for="reason">Why do you want to join us? *</label>
+                <textarea id="reason" name="reason" rows="5" placeholder="Tell us a little about yourself..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="primary-button form-submit">
+                Submit Application
+            </button>
+
+            <p id="formMessage" role="status" aria-live="polite"></p>
+
+        </form>
+    </main>
+
+    <footer>
+        <p>The Literary Society · Methodist College of Engineering</p>
+        <p>Words. Ideas. Stories.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
