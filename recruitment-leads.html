@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Recruitment | The Literary Society</title>
+    <meta name="description" content="Apply for a leadership position in The Literary Society at Methodist College of Engineering.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="brand">
+            <img src="images/logo.jpg" alt="The Literary Society logo">
+            <span>The Literary Society</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+        </div>
+    </nav>
+
+    <main class="form-page">
+        <div class="form-heading">
+            <p class="eyebrow">THE NEXT CHAPTER</p>
+            <h1>Lead with your ideas.</h1>
+            <p>Have a vision for our community? Tell us how you'd help The Literary Society grow.</p>
+        </div>
+
+        <form id="leadRecruitmentForm">
+
+            <div class="form-group">
+                <label for="fullName">Full name *</label>
+                <input type="text" id="fullName" name="fullName"
+                    placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rollNumber">College roll number *</label>
+                <input type="text" id="rollNumber" name="rollNumber"
+                    placeholder="Enter your roll number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email address *</label>
+                <input type="email" id="email" name="email"
+                    placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone number *</label>
+                <input type="tel" id="phone" name="phone"
+                    placeholder="Enter your 10-digit number"
+                    pattern="[0-9]{10}" maxlength="10" required>
+                <small>Enter a 10-digit mobile number.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year of study *</label>
+                <select id="year" name="year" required>
+                    <option value="">Select your year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="branch">Branch *</label>
+                <input type="text" id="branch" name="branch"
+                    placeholder="e.g. CSE, ECE, AIML" required>
+            </div>
+
+            <div class="form-group">
+                <label for="position">Leadership position *</label>
+                <select id="position" name="position" required>
+                    <option value="">Choose a position</option>
+                    <option value="Vice President">Vice President</option>
+                    <option value="Secretary">Secretary</option>
+                    <option value="Joint Secretary">Joint Secretary</option>
+                    <option value="Web Development Lead">Web Development Lead</option>
+                    <option value="Content and Editorial Lead">Content and Editorial Lead</option>
+                    <option value="Creative and Design Lead">Creative and Design Lead</option>
+                    <option value="Events and Operations Lead">Events and Operations Lead</option>
+                    <option value="Public Relations Lead">Public Relations Lead</option>
+                    <option value="Other">Other / To be discussed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="skills">Relevant skills or experience *</label>
+                <textarea id="skills" name="skills" rows="4"
+                    placeholder="Tell us about your skills, experience or projects..."
+                    required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="vision">What would you bring to the society? *</label>
+                <textarea id="vision" name="vision" rows="5"
+                    placeholder="Share your ideas, plans and vision..."
+                    required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Why should you be considered for this role? *</label>
+                <textarea id="reason" name="reason" rows="4"
+                    placeholder="Tell us why this position interests you..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="primary-button form-submit">
+                Submit Leadership Application
+            </button>
+
+            <p id="leadFormMessage" role="status" aria-live="polite"></p>
+        </form>
+    </main>
+
+    <footer>
+        <p>The Literary Society · Methodist College of Engineering</p>
+        <p>Words. Ideas. Stories.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
