@@ -1,15 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lead Recruitment | The Literary Society</title>
-    <meta name="description" content="Apply for a leadership position in The Literary Society at Methodist College of Engineering.">
+    <meta name="description"
+        content="Apply for a leadership position in The Literary Society at Methodist College of Engineering and Technology.">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
+<body>
     <nav class="navbar">
         <a href="index.html" class="brand">
             <img src="images/logo.jpg" alt="The Literary Society logo">
@@ -28,101 +29,142 @@
             <p>Have a vision for our community? Tell us how you'd help The Literary Society grow.</p>
         </div>
 
-        <form id="leadRecruitmentForm">
+        <section class="form-intro" aria-labelledby="societyIntroTitle">
+            <h2 id="societyIntroTitle">About The Literary Society</h2>
+            <p>The Literary Society is the heart of cultural and creative life at Methodist College of Engineering and
+                Technology. As a club driving cultural activities, college fests, open mics, debates, and creative
+                showcases, we provide a dynamic platform for everyone who loves reading, writing, public speaking, or
+                performing.</p>
+            <p>Throughout the year, we organize and anchor major campus events, workshops, and interactive sessions
+                designed to let your talents shine.</p>
+            <h3>Why Join The Literary Society?</h3>
+            <ul>
+                <li><strong>Drive Cultural Life:</strong> Help organize and participate in college fests, cultural
+                    celebrations, and flagship campus events.</li>
+                <li><strong>Express Yourself:</strong> Showcase your writing, poetry, debating, anchoring, and public
+                    speaking skills.</li>
+                <li><strong>Build Key Skills:</strong> Develop communication, leadership, stage presence, and event
+                    management abilities.</li>
+                <li><strong>Connect &amp; Collaborate:</strong> Join a welcoming community of thinkers, storytellers,
+                    and creators.</li>
+                <li><strong>Take the Lead:</strong> Take charge of initiatives and society events.</li>
+            </ul>
+            <h3>Who Can Apply?</h3>
+            <p>Every student at MCET, from any year or branch, is welcome to apply. All you need to bring is your
+                passion, creativity, and enthusiasm!</p>
+        </section>
 
+        <form id="leadRecruitmentForm">
             <div class="form-group">
                 <label for="fullName">Full name *</label>
-                <input type="text" id="fullName" name="fullName"
-                    placeholder="Enter your full name" required>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name"
+                    required>
             </div>
-
-            <div class="form-group">
-                <label for="rollNumber">College roll number *</label>
-                <input type="text" id="rollNumber" name="rollNumber"
-                    placeholder="Enter your roll number" required>
-            </div>
-
             <div class="form-group">
                 <label for="email">Email address *</label>
-                <input type="email" id="email" name="email"
-                    placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email"
+                    required>
             </div>
-
             <div class="form-group">
                 <label for="phone">Phone number *</label>
-                <input type="tel" id="phone" name="phone"
-                    placeholder="Enter your 10-digit number"
-                    pattern="[0-9]{10}" maxlength="10" required>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your 10-digit number" pattern="[0-9]{10}"
+                    maxlength="10" inputmode="numeric" autocomplete="tel" required>
                 <small>Enter a 10-digit mobile number.</small>
             </div>
-
             <div class="form-group">
-                <label for="year">Year of study *</label>
+                <label for="rollNumber">College roll number *</label>
+                <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter your roll number" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Academic year *</label>
                 <select id="year" name="year" required>
                     <option value="">Select your year</option>
-                    <option value="1st Year">1st Year</option>
-                    <option value="2nd Year">2nd Year</option>
-                    <option value="3rd Year">3rd Year</option>
-                    <option value="4th Year">4th Year</option>
+                    <option value="First Year">First Year</option>
+                    <option value="Second Year">Second Year</option>
+                    <option value="Third Year">Third Year</option>
+                    <option value="Fourth Year">Fourth Year</option>
                 </select>
             </div>
-
             <div class="form-group">
                 <label for="branch">Branch *</label>
-                <input type="text" id="branch" name="branch"
-                    placeholder="e.g. CSE, ECE, AIML" required>
-            </div>
-
-            <div class="form-group">
-                <label for="position">Leadership position *</label>
-                <select id="position" name="position" required>
-                    <option value="">Choose a position</option>
-                    <option value="Vice President">Vice President</option>
-                    <option value="Secretary">Secretary</option>
-                    <option value="Joint Secretary">Joint Secretary</option>
-                    <option value="Web Development Lead">Web Development Lead</option>
-                    <option value="Content and Editorial Lead">Content and Editorial Lead</option>
-                    <option value="Creative and Design Lead">Creative and Design Lead</option>
-                    <option value="Events and Operations Lead">Events and Operations Lead</option>
-                    <option value="Public Relations Lead">Public Relations Lead</option>
-                    <option value="Other">Other / To be discussed</option>
+                <select id="branch" name="branch" required>
+                    <option value="">Select your branch</option>
+                    <option value="CSE">CSE</option>
+                    <option value="CSE (AI & ML)">CSE (AI &amp; ML)</option>
+                    <option value="CSE (AI)">CSE (AI)</option>
+                    <option value="EEE">EEE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="MECH">MECH</option>
+                    <option value="CIVIL">CIVIL</option>
                 </select>
             </div>
-
             <div class="form-group">
-                <label for="skills">Relevant skills or experience *</label>
-                <textarea id="skills" name="skills" rows="4"
-                    placeholder="Tell us about your skills, experience or projects..."
-                    required></textarea>
+                <label for="section">Section *</label>
+                <select id="section" name="section" required>
+                    <option value="">Select your section</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
             </div>
-
             <div class="form-group">
-                <label for="vision">What would you bring to the society? *</label>
-                <textarea id="vision" name="vision" rows="5"
-                    placeholder="Share your ideas, plans and vision..."
-                    required></textarea>
+                <label for="position">Select the lead position you are interested in *</label>
+                <select id="position" name="position" required>
+                    <option value="">Choose a position</option>
+                    <option value="Chief Coordinator">Chief Coordinator</option>
+                    <option value="Secretary">Secretary</option>
+                    <option value="Vice President">Vice President</option>
+                    <option value="Vice Secretary">Vice Secretary</option>
+                    <option value="Social Media Lead">Social Media Lead</option>
+                    <option value="Design Team Lead">Design Team Lead</option>
+                    <option value="Event Management & Logistics Lead">Event Management &amp; Logistics Lead</option>
+                    <option value="TechDev">TechDev</option>
+                    <option value="Cultural Lead">Cultural Lead — Photography, Theater, Arts, Performances, etc.
+                    </option>
+                    <option value="Literacy Lead">Literacy Lead — Orators, Scripting, Content Writing, etc.</option>
+                    <option value="None">None</option>
+                </select>
             </div>
-
             <div class="form-group">
-                <label for="reason">Why should you be considered for this role? *</label>
-                <textarea id="reason" name="reason" rows="4"
-                    placeholder="Tell us why this position interests you..."
-                    required></textarea>
+                <label for="resume">Upload your resume (optional)</label>
+                <input type="file" id="resume" name="resume"
+                    accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <small>PDF, DOC, or DOCX. Maximum file size: 10 MB.</small>
             </div>
-
-            <button type="submit" class="primary-button form-submit">
-                Submit Leadership Application
-            </button>
-
+            <div class="form-group">
+                <label for="links">GitHub, LinkedIn, portfolio, or relevant work (optional)</label>
+                <textarea id="links" name="links" rows="3"
+                    placeholder="Paste links to your profiles or work"></textarea>
+            </div>
+            <fieldset class="form-group">
+                <legend>Have you previously led a team, event, project, club, or community? *</legend>
+                <label class="choice"><input type="radio" name="previousLeadership" value="Yes" required> Yes</label>
+                <label class="choice"><input type="radio" name="previousLeadership" value="No" required> No</label>
+            </fieldset>
+            <div class="form-group">
+                <label for="experience">Tell us about your experience or skills *</label>
+                <textarea id="experience" name="experience" rows="5"
+                    placeholder="Share your relevant skills, experience, or ideas..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="interviewSlot">What is your preferable time slot for interview? *</label>
+                <select id="interviewSlot" name="interviewSlot" required>
+                    <option value="">Choose a time slot</option>
+                    <option value="6 PM - 7 PM">6 PM - 7 PM</option>
+                    <option value="7 PM - 8 PM">7 PM - 8 PM</option>
+                    <option value="8 PM - 9 PM">8 PM - 9 PM</option>
+                </select>
+            </div>
+            <button type="submit" class="primary-button form-submit">Submit Leadership Application</button>
             <p id="leadFormMessage" role="status" aria-live="polite"></p>
         </form>
     </main>
-
     <footer>
-        <p>The Literary Society · Methodist College of Engineering</p>
+        <p>The Literary Society · Methodist College of Engineering and Technology</p>
         <p>Words. Ideas. Stories.</p>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

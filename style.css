@@ -1032,3 +1032,168 @@ textarea:focus-visible {
         padding: 48px 24px 28px;
     }
 }
+
+/* Leadership cards: improve photo-to-text spacing */
+.leader-photo {
+    margin-bottom: 22px;
+}
+
+.leader-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.leader-card p {
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+/* TLS Event Gallery */
+.events-grid .event-image-placeholder {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f3eee4;
+}
+
+.events-grid .event-image-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.45s ease;
+}
+
+.events-grid .event-card:hover .event-image-placeholder img {
+    transform: scale(1.04);
+}
+
+.events-grid .event-card-content {
+    padding-top: 18px;
+}
+
+.events-grid .event-card-content h3 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+    .events-grid .event-image-placeholder {
+        height: 230px;
+    }
+}
+
+/* ===== TLS Recruitment Introduction ===== */
+
+.form-intro {
+    max-width: 850px;
+    margin: 36px auto 42px;
+    padding: 34px 38px;
+    background: #fffdf8;
+    border: 1px solid rgba(173, 137, 67, 0.28);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(20, 30, 50, 0.055);
+    box-sizing: border-box;
+    color: #343434;
+    line-height: 1.85;
+}
+
+.form-intro h2 {
+    color: #14243b;
+    font-size: clamp(1.55rem, 3vw, 2rem);
+    line-height: 1.3;
+    margin: 0 0 20px;
+    letter-spacing: -0.4px;
+}
+
+.form-intro h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    background: #b89552;
+    border-radius: 3px;
+    margin-top: 14px;
+}
+
+.form-intro p {
+    margin: 0 0 16px;
+    font-size: 0.98rem;
+    color: #555b64;
+}
+
+.form-intro h3 {
+    color: #14243b;
+    font-size: 1.15rem;
+    line-height: 1.4;
+    margin: 30px 0 14px;
+}
+
+.form-intro ul {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 26px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.form-intro li {
+    background: #ffffff;
+    border: 1px solid #eee5d4;
+    border-radius: 10px;
+    padding: 15px 16px;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #555b64;
+}
+
+.form-intro li strong {
+    display: block;
+    color: #172941;
+    margin-bottom: 4px;
+}
+
+.form-intro h3:last-of-type {
+    margin-top: 28px;
+}
+
+.form-intro h3:last-of-type + p {
+    margin-bottom: 0;
+    padding: 15px 18px;
+    background: #f4efe4;
+    border-left: 3px solid #b89552;
+    border-radius: 0 8px 8px 0;
+    color: #343d49;
+}
+
+/* Give the actual application form some separation */
+.form-page form {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 600px) {
+    .form-intro {
+        margin: 24px 16px 30px;
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .form-intro ul {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .form-intro li {
+        padding: 14px;
+    }
+
+    .form-intro p {
+        font-size: 0.94rem;
+    }
+}

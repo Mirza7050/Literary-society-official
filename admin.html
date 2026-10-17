@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLS | Admin Portal</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">TLS<span>.</span></a>
+    <span class="top-label">TEAM PORTAL</span>
+  </header>
+
+  <main class="container">
+    <section id="loginPanel" class="panel login-panel">
+      <p class="eyebrow">THE LITERARY SOCIETY</p>
+      <h1>Team sign in<span>.</span></h1>
+      <p class="muted">Authorized team members only.</p>
+
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="username"
+          placeholder="you@example.com" required>
+
+        <label for="password">Password</label>
+        <input id="password" type="password"
+          autocomplete="current-password" required>
+
+        <button type="submit" id="loginButton">Sign in securely</button>
+      </form>
+      <p id="loginMessage" class="message" role="status"></p>
+      <a class="back-link" href="index.html">← Back to TLS website</a>
+    </section>
+
+    <section id="dashboardPanel" hidden>
+      <div class="dashboard-heading">
+        <div>
+          <p class="eyebrow">TLS ADMINISTRATION</p>
+          <h1>Applications<span>.</span></h1>
+          <p class="muted">Review submissions from prospective members.</p>
+        </div>
+        <button id="logoutButton" class="secondary">Sign out</button>
+      </div>
+
+      <p id="dashboardMessage" class="message" role="status"></p>
+
+      <div class="stats">
+        <article class="stat-card">
+          <span>Total applications</span>
+          <strong id="totalCount">—</strong>
+        </article>
+        <article class="stat-card">
+          <span>Membership</span>
+          <strong id="membershipCount">—</strong>
+        </article>
+        <article class="stat-card">
+          <span>Leadership</span>
+          <strong id="leadershipCount">—</strong>
+        </article>
+      </div>
+
+      <div class="toolbar">
+        <input id="searchInput" type="search"
+          placeholder="Search name, email or roll number…"
+          aria-label="Search applications">
+        <select id="typeFilter" aria-label="Filter application type">
+          <option value="all">All applications</option>
+          <option value="membership">Membership</option>
+          <option value="leadership">Leadership</option>
+        </select>
+        <button id="refreshButton" class="secondary">Refresh</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Applicant</th>
+              <th>Type / Position</th>
+              <th>Academic details</th>
+              <th>Contact</th>
+              <th>Submitted</th>
+              <th>Resume</th>
+            </tr>
+          </thead>
+          <tbody id="applicationsBody">
+            <tr><td colspan="6" class="empty">Sign in to load applications.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footer-note">Applicant information is confidential. Only access it for TLS recruitment.</p>
+    </section>
+  </main>
+</body>
+</html>
