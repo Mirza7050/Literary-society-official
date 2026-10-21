@@ -1197,3 +1197,85 @@ textarea:focus-visible {
         font-size: 0.94rem;
     }
 }
+
+/* Fix Zaid Bhai's photo on mobile */
+@media (max-width: 600px) {
+    .leader-card:nth-child(2) .leader-photo {
+        height: auto;
+        aspect-ratio: 3 / 4;
+    }
+
+    .leader-card:nth-child(2) .leader-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 15%;
+    }
+}
+
+/* =====================================
+   TLS LEADERSHIP PHOTO ALIGNMENT
+   Keep President photo unchanged
+   ===================================== */
+
+/* Desktop: adjust only the two founders */
+.leader-card:nth-child(1) .leader-photo img,
+.leader-card:nth-child(2) .leader-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Mobile: fine-tune founders' head positioning */
+@media (max-width: 600px) {
+    .leader-card:nth-child(1) .leader-photo img {
+        object-position: center 15%;
+    }
+
+    .leader-card:nth-child(2) .leader-photo img {
+        object-position: center 10%;
+    }
+}
+
+/* TLS: Consistent founder photo frames */
+.leader-card:nth-child(1) .leader-photo,
+.leader-card:nth-child(2) .leader-photo {
+    height: 300px;
+    overflow: hidden;
+}
+
+.leader-card:nth-child(1) .leader-photo img,
+.leader-card:nth-child(2) .leader-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-card:nth-child(1) .leader-photo img {
+    object-position: center 25%;
+}
+
+.leader-card:nth-child(2) .leader-photo img {
+    object-position: center 15%;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .leader-card:nth-child(1) .leader-photo,
+    .leader-card:nth-child(2) .leader-photo {
+        height: 260px;
+    }
+
+    .leader-card:nth-child(1) .leader-photo img {
+        object-position: center 25%;
+    }
+
+    .leader-card:nth-child(2) .leader-photo img {
+        object-position: center 12%;
+    }
+}
+
+
+
