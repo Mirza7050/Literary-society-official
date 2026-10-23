@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="admin.js" defer></script>
 </head>
+
 <body>
   <header class="topbar">
     <a class="brand" href="index.html">TLS<span>.</span></a>
@@ -23,12 +24,10 @@
 
       <form id="loginForm">
         <label for="email">Email address</label>
-        <input id="email" type="email" autocomplete="username"
-          placeholder="you@example.com" required>
+        <input id="email" type="email" autocomplete="username" placeholder="you@example.com" required>
 
         <label for="password">Password</label>
-        <input id="password" type="password"
-          autocomplete="current-password" required>
+        <input id="password" type="password" autocomplete="current-password" required>
 
         <button type="submit" id="loginButton">Sign in securely</button>
       </form>
@@ -64,8 +63,7 @@
       </div>
 
       <div class="toolbar">
-        <input id="searchInput" type="search"
-          placeholder="Search name, email or roll number…"
+        <input id="searchInput" type="search" placeholder="Search name, email or roll number…"
           aria-label="Search applications">
         <select id="typeFilter" aria-label="Filter application type">
           <option value="all">All applications</option>
@@ -75,6 +73,7 @@
         <button id="refreshButton" class="secondary">Refresh</button>
       </div>
 
+
       <div class="table-wrap">
         <table>
           <thead>
@@ -83,17 +82,24 @@
               <th>Type / Position</th>
               <th>Academic details</th>
               <th>Contact</th>
+              <th>Experience & Skills</th>
+              <th>Profile Links</th>
+              <th>Interview Slot</th>
               <th>Submitted</th>
               <th>Resume</th>
             </tr>
           </thead>
           <tbody id="applicationsBody">
-            <tr><td colspan="6" class="empty">Sign in to load applications.</td></tr>
+            <tr>
+              <td colspan="9" class="empty">Sign in to load applications.</td>
+            </tr>
           </tbody>
         </table>
       </div>
+
       <p class="footer-note">Applicant information is confidential. Only access it for TLS recruitment.</p>
     </section>
   </main>
 </body>
+
 </html>

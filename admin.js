@@ -123,28 +123,107 @@ async function loadApplications() {
   renderApplications();
 }
 
+
+function displayValue(value) {
+  if (value === null || value === undefined || value === "") {
+    return "—";
+  }
+
+  // Handle JSON objects and arrays returned by Supabase.
+  if (typeof value === "object") {
+    return JSON.stringify(value, null, 2);
+  }
+
+  return String(value);
+}
+
+function formatLinks(value) {
+  if (!value) return "—";
+
+  let links = [];
+
+  if (typeof value === "string") {
+    try {
+      const parsed = JSON.parse(value);
+      links = Array.isArray(parsed)
+        ? parsed
+        : typeof parsed === "object" && parsed !== null
+          ? Object.entries(parsed).map(([label, url]) => ({ label, url }))
+          : [value];
+    } catch {
+      links = [value];
+    }
+  } else if (Array.isArray(value)) {
+    links = value;
+  } else if (typeof value === "object") {
+    links = Object.entries(value).map(([label, url]) => ({
+      label,
+      url
+    }));
+  }
+
+  return links.map(item => {
+    const url = typeof item === "string"
+      ? item
+      : item?.url || item?.link || item?.href || "";
+
+    const label = typeof item === "string"
+      ? item
+      : item?.label || item?.title || url || "Profile";
+
+    const safeUrl = String(url).trim();
+
+    // Only make ordinary HTTP/HTTPS URLs clickable.
+    if (/^https?:\/\/[^\s]+$/i.test(safeUrl)) {
+      return `<a href="${escapeHTML(safeUrl)}"
+        target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`;
+    }
+
+    return escapeHTML(label || safeUrl || "—");
+  }).join("<br>");
+}
+
 function renderApplications() {
-  const search = document.getElementById("searchInput").value.trim().toLowerCase();
+  const search = document.getElementById("searchInput").value
+    .trim().toLowerCase();
+
   const type = document.getElementById("typeFilter").value;
 
   const filtered = applications.filter(app => {
-    const matchesType = type === "all" || app.application_type === type;
-    const searchText = [
-      app.full_name, app.email, app.roll_number, app.branch, app.position
-    ].join(" ").toLowerCase();
+    const matchesType =
+      type === "all" || app.application_type === type;
 
-    return matchesType && searchText.includes(search);
+    const searchable = [
+      app.full_name,
+      app.email,
+      app.roll_number,
+      app.branch,
+      app.section,
+      app.position,
+      app.experience_skills,
+      app.prior_leadership,
+      app.profile_links
+    ].map(displayValue).join(" ").toLowerCase();
+
+    return matchesType && searchable.includes(search);
   });
 
-  document.getElementById("totalCount").textContent = applications.length;
+  document.getElementById("totalCount").textContent =
+    applications.length;
+
   document.getElementById("membershipCount").textContent =
-    applications.filter(app => app.application_type === "membership").length;
+    applications.filter(app =>
+      app.application_type === "membership"
+    ).length;
+
   document.getElementById("leadershipCount").textContent =
-    applications.filter(app => app.application_type === "leadership").length;
+    applications.filter(app =>
+      app.application_type === "leadership"
+    ).length;
 
   if (!filtered.length) {
     applicationsBody.innerHTML =
-      '<tr><td colspan="6" class="empty">No matching applications found.</td></tr>';
+      '<tr><td colspan="9" class="empty">No matching applications found.</td></tr>';
     return;
   }
 
@@ -154,41 +233,71 @@ function renderApplications() {
       : "—";
 
     const academic = [
-      app.academic_year,
-      app.branch,
-      app.section,
-      app.roll_number
-    ].filter(Boolean).map(escapeHTML).join("<br>");
+      ["Year", app.academic_year],
+      ["Branch", app.branch],
+      ["Section", app.section],
+      ["Roll number", app.roll_number]
+    ].filter(([, value]) =>
+      value !== null && value !== undefined && value !== ""
+    ).map(([label, value]) =>
+      `<strong>${escapeHTML(label)}:</strong> ${escapeHTML(displayValue(value))}`
+    ).join("<br>");
 
-    const typeLabel = app.application_type === "leadership"
-      ? "Leadership"
-      : "Membership";
+    const typeLabel =
+      app.application_type === "leadership"
+        ? "Leadership"
+        : "Membership";
+
+    const details = [
+      ["Prior leadership", app.prior_leadership],
+      ["Experience & skills", app.experience_skills]
+    ].map(([label, value]) => {
+      if (value === null || value === undefined || value === "") {
+        return "";
+      }
+
+      return `<p><strong>${escapeHTML(label)}:</strong><br>${escapeHTML(displayValue(value))}</p>`;
+    }).filter(Boolean).join("");
 
     return `
       <tr>
         <td>
-          <strong>${escapeHTML(app.full_name)}</strong><br>
-          <span>${escapeHTML(app.email)}</span>
+          <strong>${escapeHTML(displayValue(app.full_name))}</strong><br>
+          ${escapeHTML(displayValue(app.email))}
         </td>
+
         <td>
           ${escapeHTML(typeLabel)}<br>
-          ${escapeHTML(app.position || "—")}
+          <strong>${escapeHTML(displayValue(app.position))}</strong>
         </td>
+
         <td>${academic || "—"}</td>
+
         <td>
-          ${escapeHTML(app.phone || "—")}<br>
-          ${escapeHTML(app.profile_links || "")}
+          ${escapeHTML(displayValue(app.phone))}
         </td>
+
+        <td>${details || "—"}</td>
+
+        <td>${formatLinks(app.profile_links)}</td>
+
+        <td>${escapeHTML(displayValue(app.interview_slot))}</td>
+
         <td>${escapeHTML(submitted)}</td>
+
         <td>
           ${app.resume_path
-            ? `<button class="resume-button" data-resume="${escapeHTML(app.resume_path)}">Download</button>`
+            ? `<button class="resume-button"
+                data-resume="${escapeHTML(app.resume_path)}">
+                Download
+              </button>`
             : "No resume"}
         </td>
       </tr>
     `;
   }).join("");
 }
+
 
 applicationsBody.addEventListener("click", async event => {
   const button = event.target.closest("[data-resume]");
