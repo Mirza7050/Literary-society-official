@@ -1277,5 +1277,59 @@ textarea:focus-visible {
     }
 }
 
+/* Leadership section — responsive four-card layout */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.leader-card {
+    min-width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.leader-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.leader-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+.leader-card h3 {
+    overflow-wrap: anywhere;
+    line-height: 1.4;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .leadership-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .leader-photo {
+        aspect-ratio: 4 / 5;
+    }
+}
+
 
 
