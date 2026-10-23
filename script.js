@@ -32,100 +32,69 @@ function getField(form, name) {
     return field.value.trim();
 }
 
-/* ========== SUBMIT APPLICATION ========== */
+/* ========== SECURE APPLICATION SUBMISSION ========== */
+
+// Replace this placeholder with your deployed Supabase
+// Edge Function URL for submit-tls-application.
+const TLS_SUBMISSION_URL = "https://uyiiaqihliptuqhdfxjt.supabase.co/functions/v1/submit-tls-application";
+
 async function submitTLSApplication(form, messageElement, applicationType) {
     const button = form.querySelector('[type="submit"]');
-    let resumePath = null;
-    let client;
 
     try {
-        if (!window.supabase) {
-            throw new Error("Supabase library did not load. Refresh the page.");
+        if (!TLS_SUBMISSION_URL.startsWith("https://") ||
+            TLS_SUBMISSION_URL === "PASTE_YOUR_FUNCTION_URL_HERE") {
+            throw new Error("The application submission endpoint is not configured.");
         }
 
-        client = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        // Make sure Cloudflare Turnstile is completed.
+        const turnstileToken = form.querySelector(
+            '[name="cf-turnstile-response"]'
+        )?.value;
 
-        const fullName = getField(form, "fullName");
-        const email = getField(form, "email");
-        const phone = getField(form, "phone");
-        const rollNumber = getField(form, "rollNumber");
-        const academicYear = getField(form, "year");
-        const branch = getField(form, "branch");
-        const section = getField(form, "section");
-
-        if (!fullName || !email || !phone || !rollNumber ||
-            !academicYear || !branch || !section) {
-            throw new Error("Please complete all required fields.");
+        if (!turnstileToken) {
+            throw new Error("Please complete the security verification.");
         }
 
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            throw new Error("Please enter a valid email address.");
+        // Collect all form fields, the resume, and the Turnstile token.
+        const formData = new FormData(form);
+
+        // Tell the server which type of application this is.
+        formData.set("application_type", applicationType);
+
+        // Send the application to the secure server-side function.
+        const response = await fetch(TLS_SUBMISSION_URL, {
+            method: "POST",
+            body: formData
+        });
+
+        let result;
+
+        try {
+            result = await response.json();
+        } catch {
+            throw new Error(
+                "The server returned an unexpected response. Please try again."
+            );
         }
 
-        const resumeInput = form.querySelector('[name="resume"]');
-        const resume = resumeInput?.files?.[0] || null;
-
-        if (resume) {
-            const allowedExtension = /\.(pdf|doc|docx)$/i;
-            const allowedTypes = [
-                "application/pdf",
-                "application/msword",
-                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            ];
-
-            if (!allowedExtension.test(resume.name) ||
-                !allowedTypes.includes(resume.type)) {
-                throw new Error("Upload your resume as a PDF, DOC, or DOCX file.");
-            }
-
-            if (resume.size > 10 * 1024 * 1024) {
-                throw new Error("Your resume must be smaller than 10 MB.");
-            }
-
-            const safeName = resume.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-            resumePath = `${crypto.randomUUID()}-${safeName}`;
-
-            const { error } = await client.storage
-                .from(SUPABASE_BUCKET)
-                .upload(resumePath, resume, {
-                    contentType: resume.type,
-                    upsert: false
-                });
-
-            if (error) throw error;
+        if (!response.ok || result.success !== true) {
+            throw new Error(
+                result.error || "Your application could not be submitted. Please try again."
+            );
         }
 
-        const application = {
-            application_type: applicationType,
-            full_name: fullName,
-            email,
-            phone,
-            roll_number: rollNumber,
-            academic_year: academicYear,
-            branch,
-            section,
-            position: getField(form, "position") || null,
-            resume_path: resumePath,
-            profile_links: getField(form, "links") || null,
-            prior_leadership: getField(form, "previousLeadership") || null,
-            experience_skills: getField(form, "experience") || null,
-            interview_slot: getField(form, "interviewSlot") || null
-        };
+        showFormMessage(
+            messageElement,
+            "Application submitted successfully! Thank you."
+        );
 
-        const { error: insertError } = await client
-            .from("tls_applications")
-            .insert([application]);
-
-        if (insertError) {
-            if (resumePath) {
-                await client.storage.from(SUPABASE_BUCKET).remove([resumePath]);
-                resumePath = null;
-            }
-            throw insertError;
-        }
-
-        showFormMessage(messageElement, "Application submitted successfully! Thank you.");
         form.reset();
+
+        // Reset Turnstile for the next submission.
+        if (window.turnstile) {
+            window.turnstile.reset();
+        }
 
     } catch (error) {
         console.error("TLS application error:", error);
@@ -135,10 +104,17 @@ async function submitTLSApplication(form, messageElement, applicationType) {
             error.message || "Something went wrong. Please try again.",
             true
         );
+
+        // Refresh the security token so the applicant can retry.
+        if (window.turnstile) {
+            window.turnstile.reset();
+        }
+
     } finally {
         if (button) {
             button.disabled = false;
-            button.textContent = button.dataset.originalText || "Submit";
+            button.textContent =
+                button.dataset.originalText || "Submit";
         }
     }
 }
