@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090b0f">
+  <title>Squad Showdown | The Literary Society, MCET</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="pubg-registration.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="pubg-registration.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar"><a class="brand" href="index.html"><img src="images/logo.jpg"
+        alt="The Literary Society logo"><span>THE LITERARY SOCIETY<small>METHODIST COLLEGE OF ENGINEERING ·
+          PRESENTS</small></span></a><a class="top-link" href="#rules">RULEBOOK <span>↗</span></a></header>
+  <main>
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> THE LITERARY SOCIETY · MCET · ESPORTS</p>
+        <h1>SQUAD<br><em>SHOWDOWN</em></h1>
+        <p class="hero-sub">FOUR PLAYERS. ONE SQUAD. ONE CHANCE TO DOMINATE.</p>
+        <div class="hero-stats">
+          <div><small>ENTRY FEE</small><strong>₹200 <span>/ SQUAD</span></strong></div>
+          <div><small>MATCH WINDOW</small><strong>10 AM <span>–</span> 1 PM</strong></div>
+          <div><small>FORMAT</small><strong>4 <span>PLAYERS</span></strong></div>
+          <div><small>VENUE</small><strong>SEMINAR HALL <span>· MCET</span></strong></div>
+        </div>
+        <a class="button button-gold" href="#register">REGISTER YOUR SQUAD <b>↘</b></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="crosshair">+</div>
+        <div class="art-number">04</div>
+        <div class="art-label">SQUAD<br>DIVISION</div>
+        <div class="art-slab"></div>
+        <div class="art-glow"></div>
+      </div>
+      <div class="hero-bottom"><span>SEMINAR HALL · MCET</span><span>THE LITERARY SOCIETY</span></div>
+    </section>
+    <section class="section tournament">
+      <div class="section-heading">
+        <p class="eyebrow">01 / THE BATTLE PLAN</p>
+        <h2>THREE MAPS. <em>ONE CHAMPION.</em></h2>
+        <p>Get your squad ready for three scheduled matches.</p>
+      </div>
+      <div class="venue-strip"><span class="venue-icon">⌖</span>
+        <div><small>TOURNAMENT VENUE</small><strong>SEMINAR HALL, MCET</strong></div>
+        <div class="venue-time"><small>MATCH TIMINGS</small><strong>10:00 AM – 1:00 PM</strong></div>
+      </div>
+      <div class="map-grid">
+        <article class="map-card erangel">
+          <div class="map-index">MATCH 01</div>
+          <div class="map-art"><span>01</span></div>
+          <h3>ERANGEL</h3>
+          <p>Classic battleground</p>
+        </article>
+        <article class="map-card rondo">
+          <div class="map-index">MATCH 02</div>
+          <div class="map-art"><span>02</span></div>
+          <h3>RONDO</h3>
+          <p>New horizons</p>
+        </article>
+        <article class="map-card miramar">
+          <div class="map-index">MATCH 03</div>
+          <div class="map-art"><span>03</span></div>
+          <h3>MIRAMAR</h3>
+          <p>Desert showdown</p>
+        </article>
+      </div>
+    </section>
+    <section class="section register" id="register">
+      <div class="section-heading">
+        <p class="eyebrow">02 / CLAIM YOUR SLOT</p>
+        <h2>REGISTER YOUR <em>SQUAD.</em></h2>
+        <p>Complete every section below. One registration per squad.</p>
+      </div>
+      <form id="tournamentForm" novalidate>
+        <div class="form-layout">
+          <div class="form-main">
+            <div class="form-card">
+              <div class="card-heading"><span>01</span>
+                <div>
+                  <h3>TEAM INFORMATION</h3>
+                  <p>Four players. Four unique game IDs.</p>
+                </div>
+              </div><label>TEAM NAME<input name="team_name" required maxlength="60"
+                  placeholder="Enter your squad name"></label>
+              <div class="uid-grid"><label>PLAYER 1 — UID<input name="player_1_uid" required inputmode="numeric"
+                    maxlength="30" placeholder="Game UID"></label><label>PLAYER 2 — UID<input name="player_2_uid"
+                    required inputmode="numeric" maxlength="30" placeholder="Game UID"></label><label>PLAYER 3 —
+                  UID<input name="player_3_uid" required inputmode="numeric" maxlength="30"
+                    placeholder="Game UID"></label><label>PLAYER 4 — UID<input name="player_4_uid" required
+                    inputmode="numeric" maxlength="30" placeholder="Game UID"></label></div>
+            </div>
+            <div class="form-card">
+              <div class="card-heading"><span>02</span>
+                <div>
+                  <h3>TEAM LEADER</h3>
+                  <p>Used for tournament communication.</p>
+                </div>
+              </div>
+              <div class="uid-grid"><label>MOBILE NUMBER<input name="leader_mobile" type="tel" required
+                    inputmode="numeric" pattern="[0-9]{10}" maxlength="10"
+                    placeholder="10-digit mobile number"></label><label>EMAIL ADDRESS<input id="leaderEmail"
+                    name="leader_email" type="email" required maxlength="254" placeholder="you@example.com"></label>
+              </div>
+              <div class="otp-row"><button class="button button-outline" id="sendOtp" type="button">SEND VERIFICATION
+                  LINK</button><span id="otpStatus" class="status-text">Email verification required</span></div>
+              <p class="helper">Use an email address you can access. Open the verification email and click its link. You
+                will return here automatically once your email is verified.</p>
+            </div>
+            <div class="form-card">
+              <div class="card-heading"><span>03</span>
+                <div>
+                  <h3>PAYMENT PROOF</h3>
+                  <p>Upload a clear screenshot of your successful payment.</p>
+                </div>
+              </div>
+
+              <div class="payment-box">
+
+                <div class="qr-placeholder">
+                  <img src="images/payment qr.jpeg" alt="Official Literary Society payment QR code"
+                    class="payment-qr-image">
+                  <strong>OFFICIAL PAYMENT QR</strong>
+                  <small>SCAN TO PAY ₹200</small>
+                </div>
+
+                <div class="payment-copy">
+                  <small>REGISTRATION FEE</small>
+                  <strong>₹200 <span>/ SQUAD</span></strong>
+
+                  <ol>
+                    <li>Scan the official Literary Society UPI QR code.</li>
+                    <li>Pay ₹200.</li>
+                    <li>Take a screenshot of successful payment.</li>
+                    <li>Upload the screenshot below.</li>
+                  </ol>
+                </div>
+
+              </div>
+
+              </div>
+
+            </div><label class="upload-zone" for="paymentFile"><span class="upload-icon">↑</span><strong>UPLOAD
+                PAYMENT SCREENSHOT</strong><small>JPG, JPEG or PNG · Maximum 5 MB</small><input id="paymentFile"
+                type="file" accept="image/jpeg,image/png" required></label>
+            <div id="previewWrap" class="preview-wrap" hidden><img id="paymentPreview" alt="Payment screenshot preview">
+              <div><strong id="fileName"></strong><small>Ready to upload</small></div><button type="button"
+                id="removeFile" class="remove-file">REMOVE</button>
+            </div>
+            <p class="helper warning">Your registration will remain pending until the management verifies your
+              payment.</p>
+          </div>
+        </div>
+        <aside class="form-aside">
+          <div class="fee-card">
+            <p class="eyebrow">SQUAD ENTRY</p><strong>₹200</strong><span>ONE-TIME REGISTRATION FEE</span>
+            <hr>
+            <p>10:00 AM – 1:00 PM</p><small>SEMINAR HALL, MCET</small><small>3 MATCHES · 4 PLAYERS</small>
+          </div>
+          <div class="check-card">
+            <h3>BEFORE YOU SUBMIT</h3>
+            <p>Make sure all four UIDs are correct and your payment proof is readable.</p><label class="accept"><input
+                id="acceptRules" type="checkbox" required><span>I have read and understood all tournament rules. I
+                agree to follow the tournament guidelines and accept the management's final decision.</span></label><a
+              href="#rules" class="text-link">READ THE COMPLETE RULEBOOK ↗</a>
+          </div><button class="button button-gold submit-button" type="submit" id="submitRegistration">SUBMIT SQUAD
+            REGISTRATION <b>→</b></button>
+          <p class="secure-note">⌑ Secure submission · Private payment proof</p>
+        </aside>
+        </div>
+        <div id="formMessage" class="form-message" role="status" aria-live="polite"></div>
+      </form>
+      <section id="successPanel" class="success-panel" hidden>
+        <div class="success-icon">✓</div>
+        <p class="eyebrow">REGISTRATION RECEIVED</p>
+        <h2>REGISTRATION <em>SUBMITTED!</em></h2>
+        <p>Your squad registration has been received. Payment verification is pending management approval.</p>
+        <div class="success-meta"><span>TEAM NAME</span><strong id="successTeam"></strong><span>REGISTRATION
+            REFERENCE</span><strong id="successId"></strong></div>
+      </section>
+    </section>
+    <section class="section rules" id="rules">
+      <div class="section-heading">
+        <p class="eyebrow">03 / KNOW THE RULES</p>
+        <h2>TOURNAMENT <em>RULEBOOK.</em></h2>
+        <p>Read every rule carefully before registering.</p>
+      </div>
+      <div class="rules-grid">
+        <details open>
+          <summary><span>01</span> DEVICE AND MERIT REQUIREMENTS</summary>
+          <ul>
+            <li>Merit below 80 = Direct kick/disqualification.</li>
+            <li>Low-level IDs must be informed to management beforehand. Management will not be responsible if such IDs
+              are kicked.</li>
+            <li>Only mobile devices are allowed.</li>
+            <li>Emulators, iPads, tablets, and other non-mobile devices are prohibited.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>02</span> RESULT SCREENSHOTS</summary>
+          <ul>
+            <li>Result screenshots are mandatory.</li>
+            <li>Management may request them at any time.</li>
+            <li>Failure to provide a screenshot means no points will be awarded.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>03</span> ALLOTTED SLOTS</summary>
+          <ul>
+            <li>Players must sit in their allotted slots.</li>
+            <li>Management is not responsible if a player is kicked for failing to occupy the assigned slot.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>04</span> ALL FOUR PLAYERS MUST JOIN</summary>
+          <ul>
+            <li>All four squad members must join before the last kick time.</li>
+            <li>If a team joins with fewer than four players and another team occupies its slot, management will not be
+              responsible for any resulting disruption or free finishes.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>05</span> ROOM AND MANAGEMENT ERRORS</summary>
+          <ul>
+            <li>If management fails to provide the IDP or mistakenly kicks a team and starts the match, the affected
+              team will receive 4–5 compensation points. No bargaining will be accepted.</li>
+            <li>Due to network glitches, players may receive alerts such as "You have been removed from the room" or
+              "Room has been disbanded".</li>
+            <li>Such alerts alone are not valid proof of being kicked.</li>
+            <li>Only a screenshot showing the waiting timer to rejoin the room, along with a clip showing entry of the
+              IDP and password, will be accepted as valid proof of a management kick.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>06</span> POV REQUIREMENTS</summary>
+          <ul>
+            <li>All players must record their complete RAW POV.</li>
+            <li>The recording must show:</li>
+            <li>Opening the game from the Play Store/App Store.</li>
+            <li>Apps running in the background.</li>
+            <li>The About Phone section from device settings.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>07</span> POV AND DEATHCAM INVESTIGATION</summary>
+          <ul>
+            <li>When POV is requested, both the team's POV and deathcam must be provided mandatorily.</li>
+            <li>If management fails to provide the alleged team's POV, compensation may be awarded at management's
+              discretion if the allegations are found genuine.</li>
+            <li>Compensation rules:</li>
+            <li>If the alleged team is not in the top 4, zero compensation points.</li>
+            <li>If the alleged team is in the top 4 and fails to submit POVs, 4 compensation points.</li>
+            <li>If further investigation confirms hacking, 1 point per player finished by that team will be awarded to
+              teams that reported them.</li>
+            <li>Compensation points may vary depending on management's decision. No bargaining will be accepted.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>08</span> SELF AED</summary>
+          <ul>
+            <li>Picking, attempting to use, or self-reviving using Self AED is prohibited.</li>
+            <li>Guilty teams receive zero points.</li>
+            <li>No compensation will be awarded to the victim.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>09</span> EMERGENCY PICKUP AND MORTAR</summary>
+          <ul>
+            <li>Emergency pickup is not allowed.</li>
+            <li>Violation results in zero points for that game.</li>
+            <li>Mortar is not allowed.</li>
+            <li>Mortar usage results in zero points for the offending team and +5 points for the victim.</li>
+            <li>Deathcam is mandatory.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>10</span> HACKING</summary>
+          <ul>
+            <li>Any player found guilty of hacking will receive a direct permanent ban.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>11</span> DEVICE CHECKS AND INVESTIGATIONS</summary>
+          <ul>
+            <li>If a team faces allegations or anything appears suspicious, management reserves the right to request
+              POVs or conduct a device check at any time.</li>
+            <li>A device check may be requested even after POV submission.</li>
+            <li>Failure to provide POV results in no PP.</li>
+            <li>In certain cases, zero points may be awarded instead of disqualification.</li>
+            <li>No excuses will be accepted.</li>
+          </ul>
+        </details>
+        <details>
+          <summary><span>12</span> TIE-BREAKER</summary>
+          <p>In case of a tie, rankings will be decided in this order:</p>
+          <ol>
+            <li>Number of WWCDs.</li>
+            <li>Position Points.</li>
+            <li>Finishes Points.</li>
+            <li>Last Match Position.</li>
+          </ol>
+        </details>
+        <details>
+          <summary><span>13</span> FINAL MANAGEMENT DECISION</summary>
+          <p>In any dispute, unforeseen circumstance, or situation not covered by these rules, the management's decision
+            will be final.</p>
+        </details>
+      </div>
+      <div class="additional">
+        <h3>ADDITIONAL GUIDELINES</h3>
+        <ol>
+          <li>No device-check requests will be accepted without POV.</li>
+          <li>The About Phone section must be shown in the POV.</li>
+          <li>No POV = Direct disqualification.</li>
+          <li>No device check or argument will be entertained without POV.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  <footer><span>THE LITERARY SOCIETY · MCET</span><span>PLAY FAIR. COMPETE HARD.</span><a href="index.html">BACK TO
+      LITERARY SOCIETY ↗</a></footer>
+</body>
+
+</html>
