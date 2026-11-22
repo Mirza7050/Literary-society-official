@@ -92,6 +92,80 @@
     </header>
 
 
+    <!-- TLS Community Reveal -->
+    <section class="community-teaser" id="community">
+        <div class="community-teaser-inner">
+            <div class="community-teaser-copy">
+                <p class="eyebrow">THE PEOPLE BEHIND THE PAGES</p>
+                <h2>A new chapter.<br><span>Written together.</span></h2>
+                <p>Meet the minds, makers and storytellers shaping the next chapter of The Literary Society.</p>
+            </div>
+            <button class="community-launch" id="openCommunityReveal" type="button"
+                aria-haspopup="dialog" aria-controls="communityReveal">
+                <span class="launch-orbit" aria-hidden="true"></span>
+                <span class="launch-label">OPEN THE COMMUNITY REVEAL</span>
+                <span class="launch-arrow" aria-hidden="true">↗</span>
+            </button>
+            <p class="community-teaser-note">LEADERSHIP · TEAMS · THE PEOPLE OF TLS</p>
+        </div>
+    </section>
+
+    <!-- Full-screen community reveal experience -->
+    <div class="community-reveal" id="communityReveal" role="dialog" aria-modal="true"
+        aria-labelledby="revealMainTitle" aria-hidden="true">
+        <div class="reveal-grain" aria-hidden="true"></div>
+        <div class="reveal-particles" id="revealParticles" aria-hidden="true"></div>
+        <div class="reveal-topbar">
+            <a class="reveal-brand" href="#community" aria-label="The Literary Society">
+                <img src="images/logo.jpg" alt="">
+                <span>THE LITERARY SOCIETY<small>METHODIST COLLEGE OF ENGINEERING</small></span>
+            </a>
+            <button class="reveal-close" id="closeCommunityReveal" type="button" aria-label="Close community reveal">×</button>
+        </div>
+
+        <div class="reveal-stage" id="revealStage">
+            <div class="reveal-intro" id="revealIntro">
+                <p class="reveal-kicker"><span></span> THE 2026 COMMUNITY <span></span></p>
+                <div class="reveal-emblem" aria-hidden="true">
+                    <div class="emblem-ring emblem-ring-one"></div>
+                    <div class="emblem-ring emblem-ring-two"></div>
+                    <div class="emblem-core">TLS</div>
+                    <span class="emblem-star star-a">✦</span>
+                    <span class="emblem-star star-b">✧</span>
+                    <span class="emblem-star star-c">✦</span>
+                </div>
+                <h2 id="revealMainTitle">EVERY STORY<br><span>NEEDS ITS PEOPLE.</span></h2>
+                <p class="reveal-intro-copy">The voices. The vision. The people who bring it all to life.</p>
+                <button class="reveal-enter" id="enterCommunity" type="button">
+                    <span>DISCOVER THE COMMUNITY</span><b>↓</b>
+                </button>
+            </div>
+
+            <div class="reveal-directory" id="revealDirectory" hidden>
+                <div class="directory-heading">
+                    <p class="reveal-kicker"><span></span> ONE SOCIETY · MANY TALENTS <span></span></p>
+                    <h2>MEET THE <span>COMMUNITY.</span></h2>
+                    <p>Eight teams. One shared story. Choose a chapter to meet its people.</p>
+                </div>
+                <div class="domain-grid" id="domainGrid"></div>
+                <div class="directory-footer"><span>THE LITERARY SOCIETY</span><i></i><span>WHERE WORDS FIND A VOICE</span></div>
+            </div>
+
+            <div class="team-detail" id="teamDetail" hidden>
+                <button class="team-back" id="backToDomains" type="button">← ALL DOMAINS</button>
+                <div class="team-detail-heading">
+                    <p class="reveal-kicker" id="teamKicker"></p>
+                    <h2 id="teamTitle"></h2>
+                    <p id="teamSubtitle"></p>
+                </div>
+                <div class="team-roster" id="teamRoster"></div>
+                <div class="team-detail-footer">A TEAM. A SHARED VISION.</div>
+            </div>
+        </div>
+        <p class="reveal-bottom-note">THE LITERARY SOCIETY <span>✦</span> METHODIST COLLEGE OF ENGINEERING</p>
+    </div>
+
+
     <!-- About section -->
 
     <section id="about" class="section">
@@ -298,7 +372,7 @@
         <p>The Literary Society · Methodist College of Engineering</p>
         <p>Words. Ideas. Stories.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
-```
