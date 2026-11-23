@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
             symbol: "✦",
             members: [
                 ["President", "Soha Sayeeda Wajahath"],
-                ["Chief Executive", "Qurrat"],
+                ["Chief Executive", "Qurratul Ayen Fathima"],
                 ["Vice President", "Mustafa"],
                 ["Vice President", "Sejal"],
                 ["Chief Coordinator", "Muneefah"],
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ["Lead", "Shahnawaz"],
                 ["Co-Lead", "Afia"],
                 ["Member", "Saaduddin"],
-                ["Member", "Abdul Rehman Taha"],
+                ["Member", "Abdul Rahman Taha"],
                 ["Member", "Arsalaan"]
             ]
         },
@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
             line: "Carrying the society's stories beyond the page.",
             symbol: "◎",
             members: [
-                ["Lead", "Siddique"],
+                ["Lead", "Siddiq"],
                 ["Co-Lead", "Muntaha"],
                 ["Member", "Humeera"],
                 ["Member", "Zun"],
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ["Member", "Samaira"],
                 ["Member", "Sajjad"],
                 ["Member", "Atif"],
-                ["Member", "Fouzaan"],
+                ["Member", "Fouzan"],
                 ["Member", "Rumaan"],
                 ["Member", "Diya Agarwal"],
                 ["Member", "Huda"],
