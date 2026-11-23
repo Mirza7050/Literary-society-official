@@ -1833,6 +1833,23 @@ body.community-lock { overflow: hidden; }
 .roster-info { min-width: 0; }
 .roster-role { margin: 0 0 4px; color: var(--gold); font-size: 8px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; }
 .roster-info h3 { margin: 0; color: var(--cream); font: 600 18px/1.25 Georgia, serif; overflow-wrap: anywhere; }
+/* Distinctive TLS styling for team Leads and Co-Leads */
+.roster-card.roster-lead-card {
+  border-color: rgba(197, 164, 92, .72);
+  background: linear-gradient(112deg, rgba(197, 164, 92, .16), rgba(247, 245, 239, .045));
+  box-shadow: inset 3px 0 0 var(--gold), 0 8px 24px rgba(10, 15, 38, .12);
+}
+.roster-info h3.roster-lead-name {
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: .15px;
+  line-height: 1.2;
+  text-shadow: 0 1px 12px rgba(197, 164, 92, .18);
+}
+
 .roster-mark { margin-left: auto; color: rgba(232,189,112,.65); font-size: 13px; }
 .team-detail-footer { margin-top: 30px; color: var(--gold); text-align: center; font-size: 9px; letter-spacing: 2.5px; }
 .view-enter { animation: tlsRevealIn .55s cubic-bezier(.2,.75,.25,1) both; }

@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ["Vice President", "Sejal"],
                 ["Chief Coordinator", "Muneefah"],
                 ["Co-Chief Coordinator", "Sibtain"],
-                ["Chief Executive", "Furqan"]
+                ["Chief Strategy Officer", "Furqan"]
             ]
         },
         {
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             members: [
                 ["Lead", "Siddique"],
                 ["Co-Lead", "Muntaha"],
-                ["Member", "Humera"],
+                ["Member", "Humeera"],
                 ["Member", "Zun"],
                 ["Member", "Zaid"],
                 ["Member", "Subhan"],
@@ -299,14 +299,14 @@ document.addEventListener("DOMContentLoaded", () => {
             symbol: "✷",
             members: [
                 ["Lead", "Omer Syed"],
-                ["Co-Lead", "Omer Mhd"],
+                ["Co-Lead", "Omer Khan"],
                 ["Performance Member", "Hamdaan"],
                 ["Performance Member", "Jeremy"],
                 ["Performance Member", "Zubiya"],
                 ["Art Member", "Akshara"],
                 ["Art Member", "Sadiya"],
                 ["Art Member", "Padala Sirja"],
-                ["Photography Member", "Qavi"],
+                ["Photography Member", "Qhavi"],
                 ["Photography Member", "Mir Baquer Ali"],
                 ["Photography Member", "Shaarib"]
             ]
@@ -386,7 +386,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         team.members.forEach(([role, name], index) => {
             const card = document.createElement("article");
-            card.className = "roster-card";
+            const highlightedRoles = ["lead", "co-lead", "president", "chief executive", "secretary", "vice secretary"];
+            const isHighlightedRole = highlightedRoles.includes(role.trim().toLowerCase());
+            card.className = isHighlightedRole ? "roster-card roster-lead-card" : "roster-card";
             card.style.setProperty("--card-index", index);
             const number = document.createElement("span");
             number.className = "roster-number";
@@ -397,6 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
             designation.className = "roster-role";
             designation.textContent = role;
             const memberName = document.createElement("h3");
+            if (isHighlightedRole) memberName.className = "roster-lead-name";
             memberName.textContent = name;
             info.append(designation, memberName);
             const mark = document.createElement("span");
