@@ -216,11 +216,11 @@ document.addEventListener("DOMContentLoaded", () => {
             members: [
                 ["President", "Soha Sayeeda Wajahath"],
                 ["Chief Executive", "Qurratul Ayen Fathima"],
-                ["Vice President", "Mustafa"],
-                ["Vice President", "Sejal"],
-                ["Chief Coordinator", "Muneefah"],
+                ["Vice President", "Mustafa Moosavi"],
+                ["Vice President", "Sejal Upadhaya"],
+                ["Chief Coordinator", "Muneefah Abdul Majeed"],
                 ["Co-Chief Coordinator", "Sibtain"],
-                ["Chief Strategy Officer", "Furqan"]
+                ["Chief Strategy Officer", "Mohd Furqan"]
             ]
         },
         {
@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
             symbol: "❖",
             members: [
                 ["Secretary", "Shifa"],
-                ["Vice Secretary", "Amaan"],
+                ["Vice Secretary", "Syed Amaan"],
                 ["Joint Secretary", "Manaar"],
                 ["Joint Secretary", "Nikitha"],
                 ["Joint Secretary", "Saamiya"]
@@ -264,8 +264,8 @@ document.addEventListener("DOMContentLoaded", () => {
             line: "Carrying the society's stories beyond the page.",
             symbol: "◎",
             members: [
-                ["Lead", "Siddiq"],
-                ["Co-Lead", "Muntaha"],
+                ["Lead", "Mohd Siddiq"],
+                ["Co-Lead", "Syed Muntaha Shareef"],
                 ["Member", "Humeera"],
                 ["Member", "Zun"],
                 ["Member", "Zaid"],
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
             line: "Making every gathering a moment worth remembering.",
             symbol: "✺",
             members: [
-                ["Lead", "Fasi"],
+                ["Lead", "Fasi Ur Rehman"],
                 ["Co-Lead", "Swayamdeep"],
                 ["Member", "Isahiti"],
                 ["Member", "Samaira"],
@@ -289,8 +289,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 ["Member", "Diya Agarwal"],
                 ["Member", "Huda"],
                 ["Member", "Haseeb"],
-                ["Member", "Hasaan"],
-                ["Member", "Noreen"]
+                ["Member", "Mohammed hassan"],
+                ["Member", "Noreen"],
+                ["Member", "Sabeeh"],
             ]
         },
         {
@@ -298,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
             line: "Bringing expression, art and performance to life.",
             symbol: "✷",
             members: [
-                ["Lead", "Omer Syed"],
+                ["Lead", "Syed Omer"],
                 ["Co-Lead", "Omer Khan"],
                 ["Performance Member", "Hamdaan"],
                 ["Performance Member", "Jeremy"],
@@ -308,7 +309,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ["Art Member", "Padala Sirja"],
                 ["Photography Member", "Qhavi"],
                 ["Photography Member", "Mir Baquer Ali"],
-                ["Photography Member", "Shaarib"]
+                ["Photography Member", "Saleem Sharib"]
             ]
         },
         {
@@ -318,14 +319,14 @@ document.addEventListener("DOMContentLoaded", () => {
             members: [
                 ["Lead", "Kashif"],
                 ["Co-Lead", "Taha"],
-                ["Orator Member", "Gunturu Ghisha"],
+                ["Orator Member", "Guntur Ghishba"],
                 ["Orator Member", "Izyan"],
                 ["Orator Member", "Zainab"],
                 ["Scripting Member", "Omkar"],
                 ["Scripting Member", "Sumaiya"],
                 ["Scripting Member", "Amena Zaidi"],
                 ["Content Writing Member", "Zehra"],
-                ["Content Writing Member", "Mustafa Ali"],
+                ["Content Writing Member", "Mustafa Hussain Ali"],
                 ["Content Writing Member", "Fizza"]
             ]
         }
